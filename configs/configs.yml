@@ -1,0 +1,32 @@
+
+# SESSION_STRING : "BAF_WQcAtOFEHv79paAJGzTbONy1GUO6ApY-tlSknt6FRygRUPhguqQDmFHh5I4SijWZtcq2_TXgZq4QL8q5mAd0OtLAiEM2RcKb7jp010je5yFJheTcdcb0HkV999ysVqL_RN5bLZm0xAkRYZ5tVWosuwYny3uH09pFezP_wQD_QUcYjSr15TogtvagY1U4LtP7LdcL9iPNPk32uW3dXN5qIN-_trBLVByld1uGEjkXiGoM1twfUsoBqeBRM9QI5UQc7DCKQhqAxFwbe3q-LIuH8n1WR14EcMOvJGrlMLLjSBM_7sCXqH2dOhIvsZ0Hah2ypJlUnV2dLIf0s5aJzwPecLteRQAAAAGid_-0AA"
+SESSION_STRING: "BADMLlsAD6iGSttxwvRvp7S5rmlrXHe8FeWx5yJmbydqIiQlxZiO6XXmwncgSRYfX5sJhPMg6CE6QG2H6_JA_YJSOC6mXWQDazz0wb73SxAoVVlqzZ-WR5FcyfOKPd2zehEExrSGD2XMjDbsnzH7-VUUdTeVf_GYZyaRZw3s9MC7O4Ff2AgbbjdmmPH-BTnyIHmwPrYLI4V_cfwe3fdTOHapeT07e-D1ski8LN5zPkbKEoMbYLwS47Bo42CeBhgL3oq9jo_RaMN2lBPzuRnQjneZ18fjF-3Z7bIvKMVaQnoSTWdA-iBtWezJswpk6if3MVi23pEEW54NkwFSAlxvB75NO3FDbgAAAAF5KRqFAA"
+
+API_ID : 13381211
+API_HASH : "095d118b706bb58b1aaf247c42c56372"
+
+
+
+
+
+
+
+#API SETTINGS
+BOT_TOKEN : "7485353624:AAHnLsR0Qi9gB1lZqpKUchmQLQTRBRkVJgY"
+
+
+ADMINS : 
+  - 1309622371
+
+OWNER : 
+  - 130962237
+#DB
+MONGO_STRING : "mongodb+srv://vpnchobot:milimeow64523@vpnchobot.tphcvhr.mongodb.net/?retryWrites=true&w=majority"
+
+
+
+
+
+START_MESSAGE : "سلام ادمین عزیز 👋🏻\n ادمین محترم برای ادامه یکی از گزینه های زیر رو انتخاب کنید\n[‎ ](https://telegra.ph/file/7dbf04b6aa0c6edb6b143.jpg)"
+LOADING_ADD_CHAT : "در حال اضافه کردن چت لطفا صبر کنید\n[‎ ](https://telegra.ph/file/d7c144ceb5c11e55320f9.gif)"
+CHAT_ADDED : "چت {} با موفقیت اضافه شد\n[‎ ](https://telegra.ph/file/1803f9993866fd27a553c.gif)"
