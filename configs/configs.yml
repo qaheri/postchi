@@ -6,11 +6,6 @@ API_ID : 13381211
 API_HASH : "095d118b706bb58b1aaf247c42c56372"
 
 
-
-
-
-
-
 #API SETTINGS
 BOT_TOKEN : "7485353624:AAHnLsR0Qi9gB1lZqpKUchmQLQTRBRkVJgY"
 
@@ -22,8 +17,6 @@ OWNER :
   - 130962237
 #DB
 MONGO_STRING : "mongodb+srv://vpnchobot:milimeow64523@vpnchobot.tphcvhr.mongodb.net/?retryWrites=true&w=majority"
-
-
 
 
 
