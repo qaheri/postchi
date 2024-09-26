@@ -15,7 +15,7 @@ Cli = Client(
   app_version = "1.0.0",
   device_model = "Postchi",
   session_string = session_string,
-  plugins = {"root": "../cli_plugins"},
+  plugins = {"root": "cli_plugins"},
   workers = 1
 )
 
