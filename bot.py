@@ -5,7 +5,8 @@
 from pyrogram import Client
 from configs.configs import *
 from time import time
-
+import os
+print(os.path.abspath("cli_plugins"))
 ##########Client##########
 
 Cli = Client(
@@ -15,7 +16,9 @@ Cli = Client(
   app_version = "1.0.0",
   device_model = "Postchi",
   session_string = session_string,
-  plugins = {"root": "cli_plugins"},
+  plugins = dict(
+        root='/root/postchi/cli_pluginsa'
+    ),
   workers = 1
 )
 
