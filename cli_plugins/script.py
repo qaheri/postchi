@@ -5,6 +5,16 @@ from helper.db_tools import *
 import emoji
 import re
 import re
+from pyrogram.types import InputMediaPhoto, InputMediaVideo
+from pysondb import db 
+settings_cache = db.getDb("/root/postchi/settings.json")
+def get_ad_text():
+    if settings_cache.getAll()==[]:
+        return False
+    else:
+        return settings_cache.getAll()[-1].get("ad_text")
+
+
 
 def remove_telegram_links_and_usernames(text, replacement_username):
     pattern = r'\b(t\.me/[\w/]+)|(@\w+)\b'
@@ -23,6 +33,7 @@ def remove_telegram_links_and_usernames(text, replacement_username):
 
 
 async def check_filtered_keywords(_,__,message):
+    # print(message)
     try:
         channel_id  = message.sender_chat.id
         data = get_mabda_chat_data(chat_id=int(channel_id))
@@ -124,10 +135,116 @@ have_filtered_words = filters.create(func=check_filtered_keywords)
 can_redirect = filters.create(func=check_quto)
 is_target = filters.create(func=check_if_channel_is_target)
 
+
+async def transfer_media_group(client, message):
+    # Check if the message is part of a media group
+    if not message.media_group_id:
+        print("This message is not part of a media group.")
+        return
+    m = message
+    if m.entities or m.caption_entities:
+        
+        entities = ''
+        if m.entities:
+            entities= m.entities
+        elif m.caption_entities:
+            entities= m.caption_entities
+        for entity in sorted(entities, key=lambda e: e.offset):
+            if str(entity.type) in ["MessageEntityType.TEXT_LINK", "MessageEntityType.URL"]:
+                return
+        
+
+    # Get all messages in the media group
+    media_group = await client.get_media_group(message.chat.id, message.id)
+    
+    # Create a directory to store downloaded files
+    if not os.path.exists("temp_downloads"):
+        os.makedirs("temp_downloads")
+
+    # Download and prepare media for sending
+
+    channel_id = m.sender_chat.id
+    chat_ids = []
+    for i in read_maghsad_chats():
+        
+        if int(channel_id) in i['targets']:
+            chat_ids.append(i)
+
+
+    media_list = []
+    for msg in media_group:
+        
+        if msg.photo:
+            file_path = await msg.download("temp_downloads/")
+            media_list.append(InputMediaPhoto(file_path))
+        elif msg.video:
+            file_path = await msg.download("temp_downloads/")
+            media_list.append(InputMediaVideo(file_path))
+
+    if m.caption:
+                
+                
+                print("im in ")
+                # Message is Media type and  Has a caption
+                
+                # for b in chat_ids:
+                for i in chat_ids:
+                            print(i)
+                 
+                            try:
+                                   
+                                chat_numeral_id = i['_id']
+                                chat_username = get_maghsad_chat(chat_id=int(chat_numeral_id))['username']
+                                caption = remove_mentions_and_links(m.caption,m.caption_entities,new_username=get_emoji(i['_id'])+' @'+chat_username)
+                                cleaned_caption = caption
+                                if get_ad_text()!=False:
+                                    cleaned_caption+="\n\n"+ get_ad_text()
+                                if media_list:
+                                    media_list[0].caption = cleaned_caption
+                                a = await client.send_media_group(i['_id'], media_list )
+                                print("[✓] Message Album redirected to {}".format(chat_username))
+                            except Exception as e :
+                                print(f"[X ERROR REDIRECTING MESSAGE] {e}")    
+                
+     
+     
+     
+    else:
+        for i in chat_ids:
+            try:
+                await client.send_media_group(i, media_list)
+            except Exception as e :
+                print(e)  
+                
+            
+                        
+    for media in media_list:
+        os.remove(media.media)
+    return
+    # Send the media group to the target chat
+      
+
+    # Clean up downloaded files
+
+
+    # Remove the temporary directory
+    os.rmdir("temp_downloads")
+
+    await message.reply("Media group transferred successfully!")
+    
+    
 @Cli.on_message(have_filtered_words & can_redirect & is_target)
 async def redirect_message(c,m):
     # print(m.entities)
     # print(m.caption_entities)
+    # print(m)
+    
+    if m.media_group_id:
+        # print("Sending media group")
+        await transfer_media_group(c,m)
+        return
+    
+    
     if m.entities or m.caption_entities:
         
         entities = ''
@@ -169,6 +286,8 @@ async def redirect_message(c,m):
                                 chat_username = get_maghsad_chat(chat_id=int(chat_numeral_id))['username']
                                 caption = remove_mentions_and_links(m.caption,m.caption_entities,new_username=get_emoji(i['_id'])+' @'+chat_username)
                                 cleaned_caption = caption
+                                if get_ad_text()!=False:
+                                    cleaned_caption+="\n\n"+ get_ad_text()
                                 await m.copy(chat_id=i['_id'],caption=cleaned_caption)
                                 print("[✓] Message redirected to {}".format(chat_username))
                             except Exception as e :
@@ -192,6 +311,8 @@ async def redirect_message(c,m):
                                 chat_username = get_maghsad_chat(chat_id=int(chat_numeral_id))['username']
                                 text= remove_mentions_and_links(m.text,m.entities,new_username=get_emoji(i['_id'])+' @'+chat_username)
                                 message_cleaned_text = text
+                                if get_ad_text()!=False:
+                                    message_cleaned_text+="\n\n"+ get_ad_text()
                                 await c.send_message(chat_id=chat_numeral_id,text=get_emoji(i['_id'])+' '+message_cleaned_text)
                                 print("[✓] Message redirected to {}".format(chat_username))
                             except Exception as e :

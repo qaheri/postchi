@@ -7,11 +7,75 @@ import jdatetime
 from helper.kbs import *
 from configs.configs import *
 from asyncio import sleep
+from pysondb import db 
+settings_cache = db.getDb("/root/postchi/settings.json")
+
 
 
 def get_current_jalali_datetime():
     return jdatetime.datetime.now().strftime('%Y-%m-%d ساعت  %H:%M')
 admin_action = {}
+
+
+
+@Api.on_message(is_admin & filters.command(['ads']))
+async def handle_ad_text(c,m):
+    await m.reply(
+        """
+ادمین محترم راهنمای بخش افزودن کپشن تبلیغ به شرح زیر هست  : 
+
+اضافه کردن متن تبلیغ :
+کافیه برای اینکار متن تبلیغ رو ارسال کنید و عبارت زیر روی اون ریپلای کنید تا متن تبلیغ شما تنظیم بشه 
+/setad
+
+حذف متن تبلیغ :
+کافیه دستور زیر رو به ربات ارسال کنید 
+/noad
+
+ همچنین دیدن مجدد این پیام و راهنمای تبلیغ :
+/ads
+        
+        """
+    )
+    
+
+@Api.on_message(is_admin & filters.command(['noad']))
+async def remove_ad(c,m):
+    for i in settings_cache.getAll():
+            settings_cache.deleteById(i.get("id"))
+    await m.reply("متن تبلیغ با موفقیت حذف و غیرفعال شد !")        
+    
+    
+    
+    
+@Api.on_message(is_admin & filters.command(['setad']))
+async def set_new_ad(c,m):
+    if not m.reply_to_message:
+        await m.reply("روی متن مورد نظر این دستور را ریپلای کنید ")
+        return
+    
+    current_add= settings_cache.getAll()
+    if current_add==[]:
+        settings_cache.add(
+            {"ad_text" : m.reply_to_message.text}
+        )
+        await m.reply("متن بالا با موفقیت به عنوان متن تبلیغ تنظیم شد \n\n"+ m.reply_to_message.text)
+    
+    else:
+        for i in settings_cache.getAll():
+            settings_cache.deleteById(i.get("id"))
+        
+        
+        settings_cache.add(
+            {"ad_text" : m.reply_to_message.text}
+        )
+        await m.reply("متن بالا با موفقیت به عنوان متن تبلیغ تنظیم شد \n\n"+ m.reply_to_message.text)
+                
+    
+        
+
+
+   
 @Api.on_message(is_admin)
 async def handle_admin_messages(c,m):
     
