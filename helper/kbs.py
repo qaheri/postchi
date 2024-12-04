@@ -4,7 +4,8 @@ admin_dash_kb = InlineKeyboard(row_width=1)
 admin_dash_kb.add(
             InlineButton(" ∙ مدیریت چنل های مبدا ∙ ","manage_mabda_chats"),
             InlineButton(" ∙ مدیریت چنل های مقصد ∙ ","manage_maghsad_chats"),
-            InlineButton(" ∙ مدیریت ادمین ها ∙ ","manage_admins")
+            InlineButton(" ∙ مدیریت ادمین ها ∙ ","manage_admins"),
+            InlineButton(" ∙ مدیریت تبلیغ ها ∙ ","manage_tabs")
         )
 manage_mabda_chats_kb = InlineKeyboard(row_width=1)
 manage_mabda_chats_kb.add(

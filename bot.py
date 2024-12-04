@@ -40,7 +40,7 @@ class Api(Client):
     await Cli.start()
     me2 = await Cli.get_me()
     cli_id = me2.id
-    await Cli.send_message(me.username, "/start")
+    # await Cli.send_message(me.username, "/start")
     print("Bots are started!")
 
   async def stop(self, *args):

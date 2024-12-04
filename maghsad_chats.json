@@ -10,38 +10,14 @@
     "emoji": "\u2b55\ufe0f"
   },
   {
-    "_id": -1001456150534,
-    "title": "\u2022[ \u0642\u0641\u0644\u06cc\u0627\u0645\u0647 ]\u2022",
-    "username": "qofliyame",
+    "_id": -1002369845382,
+    "title": "\u0645\u0648\u0632\u06cc\u06a9 \u0648 \u062a\u06a9\u0633\u062a",
+    "username": "text_musictory",
     "targets": [
-      -1002369845382
-    ],
-    "emoji": ""
-  },
-  {
-    "_id": -1001164238311,
-    "title": "\u0627\u0647\u0646\u06af \u0647\u0627\u06cc \u0634\u0627\u062f | \u0631\u06cc\u0645\u06cc\u06a9\u0633\u0627\u062a",
-    "username": "rimixate",
-    "targets": [
-      -1002369845382
-    ],
-    "emoji": ""
-  },
-  {
-    "_id": -1001154955756,
-    "title": "\u300e \u0633\u06cc\u0627\u0635\u0641\u06cc\u062f \u300f",
-    "username": "Siasefidofficial",
-    "targets": [
-      -1002369845382
-    ],
-    "emoji": ""
-  },
-  {
-    "_id": -1001133381324,
-    "title": "\u200c\u0648\u0642\u062a\u0627\u06cc\u06cc\u200c\u06a9\u0647\u200c\u0622\u0647\u0646\u06af\u200c\u06af\u0648\u0634\u200c\u0645\u06cc\u062f\u06cc\u201c",
-    "username": "HowtListen",
-    "targets": [
-      -1002369845382
+      -1001456150534,
+      -1001133381324,
+      -1001164238311,
+      -1001154955756
     ],
     "emoji": ""
   },
@@ -49,15 +25,6 @@
     "_id": -1002360837845,
     "title": "\u062a\u0633\u062a \u0645\u0642\u0635\u062f",
     "username": "limmmm9j",
-    "targets": [
-      -1002300343006
-    ],
-    "emoji": ""
-  },
-  {
-    "_id": -1002444008969,
-    "title": "\u062a\u0633\u062a \u0645\u0642\u0635\u062f \u06f2",
-    "username": "mafgsyu",
     "targets": [
       -1002300343006
     ],

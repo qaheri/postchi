@@ -3,16 +3,33 @@ from pyrogram import filters
 from pyrogram.types import MessageEntity 
 from helper.db_tools import *
 import emoji
+import json
 import re
 import re
 from pyrogram.types import InputMediaPhoto, InputMediaVideo
 from pysondb import db 
-settings_cache = db.getDb("/root/postchi/settings.json")
-def get_ad_text():
-    if settings_cache.getAll()==[]:
-        return False
-    else:
-        return settings_cache.getAll()[-1].get("ad_text")
+ads_Setting_file_path = "/root/postchi/ads.json"
+def get_ad_text(channel_id):
+    with open(ads_Setting_file_path , "r") as f :
+        data = json.load(f)
+        print(data)
+        if str(channel_id) not in data:
+            return False
+        channel_details = data[str(channel_id)]
+        if channel_details['status']==False:
+            return False
+        
+        if channel_details['text']==None:
+            return False
+        
+        
+        return channel_details['text']
+        
+
+
+
+
+
 
 
 
@@ -197,8 +214,8 @@ async def transfer_media_group(client, message):
                                 chat_username = get_maghsad_chat(chat_id=int(chat_numeral_id))['username']
                                 caption = remove_mentions_and_links(m.caption,m.caption_entities,new_username=get_emoji(i['_id'])+' @'+chat_username)
                                 cleaned_caption = caption
-                                if get_ad_text()!=False:
-                                    cleaned_caption+="\n\n"+ get_ad_text()
+                                if get_ad_text(chat_numeral_id)!=False:
+                                    cleaned_caption+="\n\n"+ get_ad_text(chat_numeral_id)
                                 if media_list:
                                     media_list[0].caption = cleaned_caption
                                 a = await client.send_media_group(i['_id'], media_list )
@@ -286,16 +303,16 @@ async def redirect_message(c,m):
                                 chat_username = get_maghsad_chat(chat_id=int(chat_numeral_id))['username']
                                 caption = remove_mentions_and_links(m.caption,m.caption_entities,new_username=get_emoji(i['_id'])+' @'+chat_username)
                                 cleaned_caption = caption
-                                if get_ad_text()!=False:
-                                    cleaned_caption+="\n\n"+ get_ad_text()
+                                if get_ad_text(chat_numeral_id)!=False:
+                                    cleaned_caption+="\n\n"+ get_ad_text(chat_numeral_id)
                                 await m.copy(chat_id=i['_id'],caption=cleaned_caption)
                                 print("[✓] Message redirected to {}".format(chat_username))
                             except Exception as e :
                                 print(f"[X ERROR REDIRECTING MESSAGE] {e}")    
-                        current_sent_messages = get_mabda_chat_data(chat_id=m.sender_chat.id)['sent_messages']
-                        new_sent_messages = int(current_sent_messages)+1
-                        mabda.update_one({"_id":m.sender_chat.id},{"$set":{"sent_messages":new_sent_messages}})
-                        save_mabda_chats()
+                        # current_sent_messages = get_mabda_chat_data(chat_id=m.sender_chat.id)['sent_messages']
+                        # new_sent_messages = int(current_sent_messages)+1
+                        # mabda.update_one({"_id":m.sender_chat.id},{"$set":{"sent_messages":new_sent_messages}})
+                        # save_mabda_chats()
 
             
     elif m.text:
@@ -311,16 +328,16 @@ async def redirect_message(c,m):
                                 chat_username = get_maghsad_chat(chat_id=int(chat_numeral_id))['username']
                                 text= remove_mentions_and_links(m.text,m.entities,new_username=get_emoji(i['_id'])+' @'+chat_username)
                                 message_cleaned_text = text
-                                if get_ad_text()!=False:
-                                    message_cleaned_text+="\n\n"+ get_ad_text()
+                                if get_ad_text(chat_numeral_id)!=False:
+                                    message_cleaned_text+="\n\n"+ get_ad_text(chat_numeral_id)
                                 await c.send_message(chat_id=chat_numeral_id,text=get_emoji(i['_id'])+' '+message_cleaned_text)
                                 print("[✓] Message redirected to {}".format(chat_username))
                             except Exception as e :
                                 print(f"[X ERROR REDIRECTING MESSAGE] {e}")   
                                 pass 
                             
-                            current_sent_messages = get_mabda_chat_data(chat_id=m.sender_chat.id)['sent_messages']
-                            new_sent_messages = int(current_sent_messages)+1
-                            mabda.update_one({"_id":m.sender_chat.id},{"$set":{"sent_messages":new_sent_messages}})
-                            save_mabda_chats() 
+                            # current_sent_messages = get_mabda_chat_data(chat_id=m.sender_chat.id)['sent_messages']
+                            # new_sent_messages = int(current_sent_messages)+1
+                            # mabda.update_one({"_id":m.sender_chat.id},{"$set":{"sent_messages":new_sent_messages}})
+                            # save_mabda_chats() 
             

@@ -374,3 +374,38 @@ def make_targets_kb(maghsad_chat_id):
     
     return kb
         
+        
+        
+# ---------------- shwoing magjad chats for adding to add texts 
+def make_ads_maghsad():
+    kb = InlineKeyboard(row_width=2)
+    list_of_buttons = []
+
+    maghsad_chats = read_maghsad_chats()
+    # print(maghsad_chats)
+    if len(maghsad_chats)==0:
+         list_of_buttons.append(
+            InlineButton(" ∙ هنوز چتی اضافه نشده ∙ ","manage_maghsad_chats")
+        )
+         
+         
+
+    else:
+        for i in maghsad_chats:
+            chat_title = '∙ '+i['title']+' ∙' if len(i['title'])<=21 else  '∙ '+i['title'][:21]+' ∙'
+            list_of_buttons.append(
+            InlineButton(chat_title,'add_to_ads_chat:'+str(i['_id']))
+            )
+        
+
+    
+    
+    kb.add(*list_of_buttons)
+    kb.row(
+
+            InlineButton(' بازگشت ❯',"manage_maghsad_chats")
+
+    )
+    
+    return kb
+            

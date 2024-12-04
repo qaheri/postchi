@@ -1,7 +1,6 @@
 
 # SESSION_STRING : "BAF_WQcAtOFEHv79paAJGzTbONy1GUO6ApY-tlSknt6FRygRUPhguqQDmFHh5I4SijWZtcq2_TXgZq4QL8q5mAd0OtLAiEM2RcKb7jp010je5yFJheTcdcb0HkV999ysVqL_RN5bLZm0xAkRYZ5tVWosuwYny3uH09pFezP_wQD_QUcYjSr15TogtvagY1U4LtP7LdcL9iPNPk32uW3dXN5qIN-_trBLVByld1uGEjkXiGoM1twfUsoBqeBRM9QI5UQc7DCKQhqAxFwbe3q-LIuH8n1WR14EcMOvJGrlMLLjSBM_7sCXqH2dOhIvsZ0Hah2ypJlUnV2dLIf0s5aJzwPecLteRQAAAAGid_-0AA"
-# SESSION_STRING : BADMLlsAswoCUisGTUDH_WpJ0NzW3ZSHZYZlmUD40Hjlw6p37qKWvD59FXrNxCeh5cSnbiTFuZvzY_uNM7VHT9B0OzfJ16t7Bax2f0UTIDsgTDrYIDZuDldRqEeDE2Jbctub86p_6kpQgCx70deTlPd4f5Wn6HILibA-BlW0h1V7oIoQeAG-JGrE0shOYNafRLRG6jelqvzWwzwxcicFJNhC5k4VDhALpnS4camVGyxnCHEcqQbe8it9NPR9PJ-zLYM0P3XEQ6HJH6TG67lLMsAwNkE87-YhjBdBS2A9Lu7XLGjQ9igYC9KHfQNgD5V3aUW80uvZyAW093IEsrE0pNoKGWS3QgAAAAHNzf6HAA
-SESSION_STRING : BAGzqtgAqmSukUkngiMICQh8SduEnE35kaT7KNE8jR8REeiLil9bMaXp7uLdPFOCrDfthiIHhVl6Mud4Yp-FROsa0vgZmnkJoV8n2YnnIs7R476KmC5TwrlrshkQsmJCgOfKWAikE367wN6Zbn8UvH85O2GYcRBruzRrLXnzOsmlVSN146_M18fsSS4_tay6zTGbwUhNZ0El1Qr5CL0znsum3Oe0lyEed5Y1azV1BDX99UdfsFE1U7UWBk-xem-pRzydcnaPh-skrrTqXL-6rYdERzelUUK8EpMfNp9IFYpplJEjbgrYe3Ak-Mq4Exc-2UIrBq72UV-XDVsfCPAqOpCTzkcaUQAAAAHNzf6HAA
+SESSION_STRING : ""
 
 API_ID : 28551896
 API_HASH : "f58868ded5ec06d2aa4e204708f72560"
@@ -12,17 +11,11 @@ BOT_TOKEN : "7485353624:AAHnLsR0Qi9gB1lZqpKUchmQLQTRBRkVJgY"
 
 
 ADMINS : 
-  - 233586821
   - 130962237
 
 OWNER : 
-
   - 130962237
 #DB
 MONGO_STRING : "mongodb+srv://user:1234567890@cluster0.c2egg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-
-
-
-START_MESSAGE : "سلام ادمین عزیز 👋🏻\n ادمین محترم برای ادامه یکی از گزینه های زیر رو انتخاب کنید\n[‎ ](https://telegra.ph/file/7dbf04b6aa0c6edb6b143.jpg)"
-LOADING_ADD_CHAT : "در حال اضافه کردن چت لطفا صبر کنید\n[‎ ](https://telegra.ph/file/d7c144ceb5c11e55320f9.gif)"
+: "در حال اضافه کردن چت لطفا صبر کنید\n[‎ ](https://telegra.ph/file/d7c144ceb5c11e55320f9.gif)"
 CHAT_ADDED : "چت {} با موفقیت اضافه شد\n[‎ ](https://telegra.ph/file/1803f9993866fd27a553c.gif)"
