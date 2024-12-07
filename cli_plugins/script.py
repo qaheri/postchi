@@ -66,19 +66,23 @@ async def check_filtered_keywords(_,__,message):
             if len(list_of_words)>0:
                 for i in list_of_words:
                     if i in message.text:
+                        print("Sending")
                         return True
                 return False   
             else:
                 if kw in message.text:
+                    print("Sending")
                     return True 
         elif message.caption:
             if len(list_of_words)>0:
                 for i in list_of_words:
                     if i in message.caption:
+                        print("Sending")
                         return True
                 return False 
             else:
                 if kw in message.caption:
+                    print("Sending")
                     return True
         else:
             return 
@@ -93,11 +97,13 @@ async def check_quto(_,__,message):
         sent_messages = data['sent_messages']
         if number_of_messages_per_day!='':
             if sent_messages==0:
+                print("Sending")
                 return True
             else:
                 if sent_messages==number_of_messages_per_day:
                     return False
                 elif number_of_messages_per_day>sent_messages:
+                    print("Sending")
                     return True
         else:
             return True
@@ -134,6 +140,8 @@ async def check_if_channel_is_target(_,__,message):
         channel_id  = message.sender_chat.id
         for i in read_maghsad_chats():
             if channel_id in i['targets']:
+                print("Sending")
+                print("Channel is target")
                 return True
         return False    
     except Exception as e:
@@ -252,6 +260,7 @@ async def transfer_media_group(client, message):
     
 @Cli.on_message(have_filtered_words & can_redirect & is_target)
 async def redirect_message(c,m):
+    print("redirecting message")
     # print(m.entities)
     # print(m.caption_entities)
     # print(m)
@@ -262,16 +271,16 @@ async def redirect_message(c,m):
         return
     
     
-    if m.entities or m.caption_entities:
-        
-        entities = ''
-        if m.entities:
-            entities= m.entities
-        elif m.caption_entities:
-            entities= m.caption_entities
-        for entity in sorted(entities, key=lambda e: e.offset):
-            if str(entity.type) in ["MessageEntityType.TEXT_LINK", "MessageEntityType.URL"]:
-                return
+    # if m.entities or m.caption_entities:
+    #     print("has entity")
+    #     entities = ''
+    #     if m.entities:
+    #         entities= m.entities
+    #     elif m.caption_entities:
+    #         entities= m.caption_entities
+    #     for entity in sorted(entities, key=lambda e: e.offset):
+    #         if str(entity.type) in ["MessageEntityType.TEXT_LINK", "MessageEntityType.URL"]:
+    #             return
         
 
     

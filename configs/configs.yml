@@ -1,6 +1,6 @@
 
 # SESSION_STRING : "BAF_WQcAtOFEHv79paAJGzTbONy1GUO6ApY-tlSknt6FRygRUPhguqQDmFHh5I4SijWZtcq2_TXgZq4QL8q5mAd0OtLAiEM2RcKb7jp010je5yFJheTcdcb0HkV999ysVqL_RN5bLZm0xAkRYZ5tVWosuwYny3uH09pFezP_wQD_QUcYjSr15TogtvagY1U4LtP7LdcL9iPNPk32uW3dXN5qIN-_trBLVByld1uGEjkXiGoM1twfUsoBqeBRM9QI5UQc7DCKQhqAxFwbe3q-LIuH8n1WR14EcMOvJGrlMLLjSBM_7sCXqH2dOhIvsZ0Hah2ypJlUnV2dLIf0s5aJzwPecLteRQAAAAGid_-0AA"
-SESSION_STRING : ""
+SESSION_STRING : "BAGzqtgAUHSN2MzcSiOAP9DRKStiD2AODn3y7nX6BBPRje9WkmjU81y-sajolj9BsorWgnmwjiX5_fbj4Y46VOcoj0UwBcb_hitvZ-qrsR5Xhow4sdzOIXiS6rnCCHvrrfpk90M0ApIl0pLAv6AYFKadr5rY5V-3Pv9ULHCgkpgKynuio30r77gFN6f2555KunYtNNgEtqXr_M4gvJp3fTeaSYpWHBLeQI6DLTQ0L5OHWL35fJWabyqQSA_MFGNBQPOhlIDyXWHyj0atx7yUmQYaJ_8eYAHq3rkekB2l9_mPs027NadFpMjJRa3KQ6PYzJ89Nst7lelcseITMqjCSFmxkyEYMQAAAAHNzf6HAA"
 
 API_ID : 28551896
 API_HASH : "f58868ded5ec06d2aa4e204708f72560"
@@ -17,5 +17,7 @@ OWNER :
   - 130962237
 #DB
 MONGO_STRING : "mongodb+srv://user:1234567890@cluster0.c2egg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-: "در حال اضافه کردن چت لطفا صبر کنید\n[‎ ](https://telegra.ph/file/d7c144ceb5c11e55320f9.gif)"
+
+START_MESSAGE : "سلام ادمین عزیز 👋🏻\n ادمین محترم برای ادامه یکی از گزینه های زیر رو انتخاب کنید\n[‎ ](https://telegra.ph/file/7dbf04b6aa0c6edb6b143.jpg)"
+LOADING_ADD_CHAT : "در حال اضافه کردن چت لطفا صبر کنید\n[‎ ](https://telegra.ph/file/d7c144ceb5c11e55320f9.gif)"
 CHAT_ADDED : "چت {} با موفقیت اضافه شد\n[‎ ](https://telegra.ph/file/1803f9993866fd27a553c.gif)"

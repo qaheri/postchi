@@ -58,7 +58,6 @@ pydantic_core==2.18.1
 PyExecJS==1.5.1
 pykeyboard==0.1.5
 pymongo==4.7.2
-Pyrogram==2.0.106
 PySocks==1.7.1
 pysondb==1.6.7
 python-socks==2.4.4
